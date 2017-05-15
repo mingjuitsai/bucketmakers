@@ -51,7 +51,7 @@ var data = {
         },
         {
           "week": 6,
-          "time": "2017-06-01T21:20+10:00",
+          "time": "2017-05-25T21:20+10:00",
           "opponent": "Sth East Beasts",
           "result": {
             "home_score": "",
@@ -239,3 +239,4 @@ data.teams[0].games.forEach(function(gameData, index){
   // console.log(gameItem);
   document.querySelector('.games').appendChild(gameItem.element);
 });
+
