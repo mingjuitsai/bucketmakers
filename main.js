@@ -1,3 +1,65 @@
+/*
+  Class List pollyfill
+*/
+// Source: https://gist.github.com/k-gun/c2ea7c49edf7b757fe9561ba37cb19ca
+;(function() {
+    // helpers
+    var regExp = function(name) {
+        return new RegExp('(^| )'+ name +'( |$)');
+    };
+    var forEach = function(list, fn, scope) {
+        for (var i = 0; i < list.length; i++) {
+            fn.call(scope, list[i]);
+        }
+    };
+
+    // class list object with basic methods
+    function ClassList(element) {
+        this.element = element;
+    }
+
+    ClassList.prototype = {
+        add: function() {
+            forEach(arguments, function(name) {
+                if (!this.contains(name)) {
+                    this.element.className += this.element.className.length > 0 ? ' ' + name : name;
+                }
+            }, this);
+        },
+        remove: function() {
+            forEach(arguments, function(name) {
+                this.element.className =
+                    this.element.className.replace(regExp(name), '');
+            }, this);
+        },
+        toggle: function(name) {
+            return this.contains(name) 
+                ? (this.remove(name), false) : (this.add(name), true);
+        },
+        contains: function(name) {
+            return regExp(name).test(this.element.className);
+        },
+        // bonus..
+        replace: function(oldName, newName) {
+            this.remove(oldName), this.add(newName);
+        }
+    };
+
+    // IE8/9, Safari
+    if (!('classList' in Element.prototype)) {
+        Object.defineProperty(Element.prototype, 'classList', {
+            get: function() {
+                return new ClassList(this);
+            }
+        });
+    }
+
+    // replace() support for others
+    if (window.DOMTokenList && DOMTokenList.prototype.replace == null) {
+        DOMTokenList.prototype.replace = ClassList.prototype.replace;
+    }
+})();
+
 
 var teams = [
   'Bucket Makers',
@@ -212,11 +274,9 @@ function Game(gameData) {
   var self = this;
   var gameDate = new Date(gameData.time);
   var datesFromNow = (gameDate.getTime() - (new Date()).getTime());
-  console.log(datesFromNow);
-  self.nextGame =  datesFromNow <= (60*60*24*7*1000) && datesFromNow > 0 ? true : false;
-  console.log(self.nextGame);
-  
-  
+  // console.log(datesFromNow);
+  self.nextGame = datesFromNow <= (60*60*24*7*1000) && datesFromNow > 0 ? true : false;
+  self.pastGame = datesFromNow <= 0 ? true : false;
   self.week = gameData.week;
   self.date = fecha.format(gameDate, 'dddd Do MMMM, YYYY');
   self.opponent = gameData.opponent;
@@ -227,9 +287,15 @@ function Game(gameData) {
         week = document.createElement('p'),
         dateTime = document.createElement('p'),
         date = document.createElement('p'),
-        time = document.createElement('p');
+        time = document.createElement('p'),
+        gameClass = 'game';
     // Assign Class
-    item.className = self.nextGame ? 'game nexGame' : 'game';
+    if( self.nextGame ) {
+      gameClass += ' nexGame';
+    } else if ( self.pastGame ) {
+      gameClass += ' pastGame';
+    }
+    item.className = gameClass;
     week.classList.add('week');
     dateTime.classList.add('gameTime');
     date.classList.add('date');
@@ -249,9 +315,22 @@ function Game(gameData) {
   })();
 }
 
+// Load the game and append
 data.teams[0].games.forEach(function(gameData, index){
   var gameItem = new Game(gameData);
   // console.log(gameItem);
   document.querySelector('.games').appendChild(gameItem.element);
 });
 
+// Toggle button
+var pastGames = Array.prototype.slice.call(document.querySelectorAll('.pastGame'));
+
+document.querySelector('.button--load').addEventListener('click', function(event){
+  console.log('casd');
+  var self = event.currentTarget;
+  // Toggle classes
+  self.classList.toggle('active');
+  pastGames.forEach(function(pastGame, index){
+    pastGame.classList.toggle('active');
+  });
+});

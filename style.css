@@ -1,3 +1,4 @@
+/* Global */
 body {
   font-family: Arial;
   color: #212121;
@@ -5,6 +6,12 @@ body {
   line-height: 1.5;
 }
 
+button {
+  outline: 0;
+  cursor: pointer;
+}
+
+/* Games */
 .games {
   max-width: 85%;
   margin: 2em auto;
@@ -24,4 +31,31 @@ body {
 
 .nexGame {
   color: #f4511e;
+}
+
+.pastGame {
+  display: none;
+  opacity: .5;
+}
+
+.pastGame.active {
+  display: block;
+}
+
+
+/* Button */
+.button--load {
+  width: 100%;
+  border: 0;
+  background: #90a4ae;
+  color: #fafafa;
+  border-radius: 10px;
+  margin-bottom: 1.8em;
+  padding: 1.2em;
+  font-size: .85em;
+  transition: box-shadow .15s ease-out;
+}
+
+.button--load.active {
+  box-shadow: inset 10px 10px 50px 0px #78909c;
 }
