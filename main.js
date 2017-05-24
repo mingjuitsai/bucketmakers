@@ -1,3 +1,18 @@
+
+var teams = [
+  'Bucket Makers',
+  'City Ballers',
+  'realestate.com.au',
+  'Emerald Hotel Bulls',
+  'The Truth',
+  'Voorscht',
+  'Sth East Beasts',
+  'I S Slammers',
+  'Intrepid Traveller',
+  'Ventricles',
+  'Yao Know what I Ming'
+]
+
 var data = {
   "teams": [
     {
@@ -51,8 +66,8 @@ var data = {
         },
         {
           "week": 6,
-          "time": "2017-05-25T21:20+10:00",
-          "opponent": "Sth East Beasts",
+          "time": "2017-05-25T18:50+10:00",
+          "opponent": teams[10],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -60,8 +75,8 @@ var data = {
         },
         {
           "week": 7,
-          "time": "2017-06-01T20:30+10:00",
-          "opponent": "INTREPID TRAVELLER",
+          "time": "2017-06-01T18:50+10:00",
+          "opponent": teams[1],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -70,7 +85,7 @@ var data = {
         {
           "week": 8,
           "time": "2017-06-15T19:40+10:00",
-          "opponent": "YAO KNOW WHAT I MING",
+          "opponent": teams[3],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -78,8 +93,8 @@ var data = {
         },
         {
           "week": 9,
-          "time": "2017-06-15T18:50+10:00",
-          "opponent": "realestate.com.au",
+          "time": "2017-06-15T20:30+10:00",
+          "opponent": teams[5],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -87,8 +102,8 @@ var data = {
         },
         {
           "week": 10,
-          "time": "2017-06-22T18:00+10:00",
-          "opponent": "FOREVER",
+          "time": "2017-06-22T21:20+10:00",
+          "opponent": teams[7],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -96,8 +111,8 @@ var data = {
         },
         {
           "week": 11,
-          "time": "2017-06-29T18:00+10:00",
-          "opponent": "EMERALD HOTEL BULLS",
+          "time": "2017-06-29T22:10+10:00",
+          "opponent": teams[9],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -105,52 +120,7 @@ var data = {
         },
         {
           "week": 12,
-          "time": "2017-07-06T18:50+10:00",
-          "opponent": "VOORSCHT",
-          "result": {
-            "home_score": "",
-            "away_score": ""
-          }
-        },
-        {
-          "week": 13,
-          "time": "2017-07-13T19:40+10:00",
-          "opponent": "I S SLAMMERS",
-          "result": {
-            "home_score": "",
-            "away_score": ""
-          }
-        },
-        {
-          "week": 14,
-          "time": "2017-07-20T20:30+10:00",
-          "opponent": "VENTRICLES",
-          "result": {
-            "home_score": "",
-            "away_score": ""
-          }
-        },
-        {
-          "week": 15,
-          "time": "2017-07-27T21:20+10:00",
-          "opponent": "TORNADOES",
-          "result": {
-            "home_score": "",
-            "away_score": ""
-          }
-        },
-        {
-          "week": 16,
-          "time": "2017-08-03T22:10+10:00",
-          "opponent": "CITY BALLERS",
-          "result": {
-            "home_score": "",
-            "away_score": ""
-          }
-        },
-        {
-          "week": 17,
-          "time": "2017-08-10T00:00+10:00",
+          "time": "2017-07-06T00:00+10:00",
           "opponent": null,
           "result": {
             "home_score": null,
@@ -158,9 +128,54 @@ var data = {
           }
         },
         {
+          "week": 13,
+          "time": "2017-07-13T22:10+10:00",
+          "opponent": teams[2],
+          "result": {
+            "home_score": "",
+            "away_score": ""
+          }
+        },
+        {
+          "week": 14,
+          "time": "2017-07-20T21:20+10:00",
+          "opponent": teams[4],
+          "result": {
+            "home_score": "",
+            "away_score": ""
+          }
+        },
+        {
+          "week": 15,
+          "time": "2017-07-27T20:30+10:00",
+          "opponent": teams[6],
+          "result": {
+            "home_score": "",
+            "away_score": ""
+          }
+        },
+        {
+          "week": 16,
+          "time": "2017-08-03T19:40+10:00",
+          "opponent": teams[8],
+          "result": {
+            "home_score": "",
+            "away_score": ""
+          }
+        },
+        {
+          "week": 17,
+          "time": "2017-08-10T18:50+10:00",
+          "opponent": teams[10],
+          "result": {
+            "home_score": null,
+            "away_score": null
+          }
+        },
+        {
           "week": 18,
-          "time": "2017-08-17T22:10+10:00",
-          "opponent": "THE TRUTH",
+          "time": "2017-08-17T18:50+10:00",
+          "opponent": teams[1],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -168,8 +183,8 @@ var data = {
         },
         {
           "week": 19,
-          "time": "2017-08-24T21:20+10:00",
-          "opponent": "STH EAST BEASTS",
+          "time": "2017-08-24T19:40+10:00",
+          "opponent": teams[3],
           "result": {
             "home_score": "",
             "away_score": ""
@@ -178,7 +193,7 @@ var data = {
         {
           "week": 20,
           "time": "2017-08-31T20:30+10:00",
-          "opponent": "INTREPID TRAVELLER",
+          "opponent": teams[5],
           "result": {
             "home_score": "",
             "away_score": ""
