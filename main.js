@@ -146,7 +146,7 @@ var data = {
         },
         {
           "week": 8,
-          "time": "2017-06-15T19:40+10:00",
+          "time": "2017-06-08T19:40+10:00",
           "opponent": teams[3],
           "result": {
             "home_score": "",
